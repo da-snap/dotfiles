@@ -1,0 +1,120 @@
+execute pathogen#infect()
+
+syntax on
+set expandtab
+set tabstop=4 shiftwidth=4
+set autoindent
+
+" Write Ctags every time when saving files:
+"au BufWritePost *.pm,*.js,*.vue silent! !ctags -R &
+
+" no automatic linebreak when textwidth is reached
+setlocal formatoptions-=t
+setlocal formatoptions+=l
+setlocal textwidth=80
+setlocal colorcolumn=+1
+highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
+
+scriptencoding utf-8
+set encoding=utf-8
+
+" set viminfo
+set viminfo='10,"\100,:20,%,n~/.viminfo
+
+" return to last line, when opening a file again
+function! ResCur()
+  if line("'\"") <= line("$")
+    normal! g`"
+    return 1
+  endif
+endfunction
+
+augroup resCur
+  autocmd!
+  autocmd BufWinEnter * call ResCur()
+augroup END
+
+filetype indent plugin on
+
+" setlocal foldmethod=indent
+"autocmd FileType perl setlocal foldmethod=indent
+" never expand tabs in Makefiles - bugs them out
+autocmd FileType make setlocal noexpandtab
+" expand tabs in perl and config files
+autocmd FileType perl setlocal expandtab
+autocmd FileType conf setlocal expandtab
+autocmd FileType apache setlocal expandtab
+" python settings
+autocmd FileType python setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4
+
+" perl smartsearch: if lowercase, ignore case
+set ignorecase
+set smartcase
+set incsearch
+
+"better file completion while opening files from vim
+set wildmode=list:longest
+
+:set guioptions-=m  "remove menu bar
+:set guioptions-=T  "remove toolbar
+:set guioptions-=r  "remove toolbar
+
+set rnu
+
+" settings to use buffers
+:set hidden
+
+" To open a new empty buffer
+ " This replaces :tabnew which I used to bind to this mapping
+ nmap <leader>T :enew<cr>
+
+ " Move to the next buffer
+ nmap <leader>l :bnext<CR>
+
+ " Move to the previous buffer
+ nmap <leader>h :bprevious<CR>
+
+ " Close the current buffer and move to the previous one
+ " This replicates the idea of closing a tab
+ nmap <leader>bq :bp <BAR> bd #<CR>
+
+ " Show all open buffers and their status
+ nmap <leader>bl :ls<CR>
+
+" Easy CtrlP bindings for its various modes
+nmap <leader>bb :CtrlPBuffer<cr>
+nmap <leader>bm :CtrlPMixed<cr>
+nmap <leader>bs :CtrlPMRU<cr>
+
+nmap <leader>o :set paste!<cr>
+
+" Format a JSON
+nmap =j :%!python -m json.tool<cr>
+" Persistent undo
+set undofile
+set undodir=$HOME/.vim/undo
+
+set undolevels=100
+set undoreload=1000
+
+filetype plugin indent on
+
+set hlsearch cursorline
+"syntax enable
+set background=light
+colorscheme smyck
+
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
+
+" Enable linting for JS and VUE
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_vue_checkers = ['eslint']
+let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
+if matchstr(local_eslint, "^\/\\w") == ''
+    let local_eslint = getcwd() . "/" . local_eslint
+endif
+if executable(local_eslint)
+    let g:syntastic_javascript_eslint_exec = local_eslint
+    let g:syntastic_vue_eslint_exec = local_eslint
+endif

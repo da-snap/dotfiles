@@ -1,0 +1,29 @@
+[
+    {
+        "defaults": {
+            "link": {
+                "relink": true
+            }
+        }
+    },
+    {
+        "clean": ["~"]
+    },
+    {
+        "link": {
+            "~/.dotfiles": "",
+            "~/.inputrc": "bash/inputrc",
+            "~/.profile": "bash/profile",
+            "~/.bash": "bash/bash",
+            "~/.bashrc": "bash/bashrc",
+            "~/.bash_aliases": "bash/bash_aliases",
+            "~/.vim": "vim/vim",
+            "~/.vimrc": "vim/vimrc"
+        }
+    },
+    {
+        "shell": [
+            ["git submodule update --init --recursive", "Installing submodules"]
+        ]
+    }
+]
