@@ -19,13 +19,14 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
-alias repo = 'cd /opt/repos'
+alias repo='cd /opt/repos'
 
+alias q='exit'
 # some aliases for git
 alias gitc='git commit -p'
 alias gitp='git push'
 
-alias wiki = 'cd /var/www/qwikis/qwiki'
+alias wiki='cd /var/www/qwikis/qwiki'
 alias psi='/var/www/qwikis/qwiki/pseudo-install.pl -e "${PWD##*/}"'
 alias psiu='/var/www/qwikis/qwiki/pseudo-install.pl -u "${PWD##*/}"'
 alias flog='tail -f /var/www/qwikis/qwiki/working/logs/error.log'
@@ -35,3 +36,9 @@ alias tv='(/home/supplieth/Downloads/teamviewer8/teamviewer &> /dev/null &)'
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# Tree
+if [ ! -x "$(which tree 2>/dev/null)" ]
+then
+  alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+fi
