@@ -28,3 +28,6 @@
 [submodule "vim/vim/bundle/vim-better-whitespace"]
 	path = vim/vim/bundle/vim-better-whitespace
 	url = https://github.com/ntpeters/vim-better-whitespace.git
+[submodule "bash/gnome-terminal-colors-smyck"]
+	path = bash/gnome-terminal-colors-smyck
+	url = https://github.com/vcavallo/gnome-terminal-colors-smyck.git
