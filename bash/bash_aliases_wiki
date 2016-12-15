@@ -1,0 +1,7 @@
+alias repo='cd /opt/repos'
+
+alias wiki='cd /var/www/qwikis/qwiki'
+alias psi='/var/www/qwikis/qwiki/pseudo-install.pl -e "${PWD##*/}"'
+alias psiu='/var/www/qwikis/qwiki/pseudo-install.pl -u "${PWD##*/}"'
+alias flog='tail -f /var/www/qwikis/qwiki/working/logs/error.log'
+alias alog='sudo tail -f /var/log/apache2/error.log'
