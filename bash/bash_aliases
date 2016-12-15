@@ -20,6 +20,7 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 
 alias repo='cd /opt/repos'
+alias vpn='sudo openvpn *.ovpn'
 
 alias q='exit'
 # some aliases for git
