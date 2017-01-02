@@ -38,6 +38,7 @@ autocmd FileType conf setlocal expandtab
 autocmd FileType apache setlocal expandtab
 " python settings
 autocmd FileType python setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4
+autocmd FileType vue setlocal backupcopy=yes
 
 " perl smartsearch: if lowercase, ignore case
 set ignorecase
