@@ -90,8 +90,6 @@ set undodir=$HOME/.vim/undo
 set undolevels=100
 set undoreload=1000
 
-filetype plugin indent on
-
 set hlsearch cursorline
 "syntax enable
 set background=light
