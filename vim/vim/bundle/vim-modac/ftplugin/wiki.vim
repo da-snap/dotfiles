@@ -48,7 +48,7 @@ setlocal indentexpr=WikiIndent()
 
 call IMAP('if!', "%IF{\<CR>\<c-t>\"<+cond+>\"\<CR>then=\"<+then+>\"<++> else=\"<+else+>\"\<CR>\<c-d>}%<++>", 'wiki')
 call IMAP('search!', "SEARCH{\<CR>\<c-t>\"<++>\"\<CR>type=\"<++>\"\<CR>limit=\"<++>\"\<CR>nonoise=\"<++>\"\<CR>format=\"<++>\"\<CR>\<c-d>}<++>", 'wiki')
-call IMAP("PREF", "%META:PREFERENCE{name=\"<++>\" title=\"<++>\" type=\"<++>\" value=\"<++>\"}%", "wiki")
+call IMAP("PREF!", "%META:PREFERENCE{name=\"<++>\" title=\"<++>\" type=\"<++>\" value=\"<++>\"}%", "wiki")
 
 nnoremap <F5> ms:%call WikiExpand(1)<CR>`s
 nnoremap <s-F5> ms:%call WikiExpand(0)<CR>`s
