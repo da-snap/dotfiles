@@ -31,3 +31,9 @@
 [submodule "bash/gnome-terminal-colors-smyck"]
 	path = bash/gnome-terminal-colors-smyck
 	url = https://github.com/vcavallo/gnome-terminal-colors-smyck.git
+[submodule "vim/vim/bundle/vim-surround"]
+	path = vim/vim/bundle/vim-surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "vim/vim/bundle/vim-repeat"]
+	path = vim/vim/bundle/vim-repeat
+	url = https://github.com/tpope/vim-repeat.git
