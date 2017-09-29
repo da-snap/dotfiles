@@ -2,8 +2,17 @@ execute pathogen#infect()
 
 syntax on
 set expandtab
-set tabstop=4 shiftwidth=4
 set autoindent
+
+"Set syntax checker
+let g:syntastic_javascript_checkers=['eslint']
+let g:syntastic_javascript_eslint_exe='$(npm bin)/eslint'
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_loc_list_height = 5
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+""""""""""""""""""
 
 " Write Ctags every time when saving files:
 "au BufWritePost *.pm,*.js,*.vue silent! !ctags -R &
@@ -38,7 +47,7 @@ autocmd FileType conf setlocal expandtab
 autocmd FileType apache setlocal expandtab
 " python settings
 autocmd FileType python setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4
-autocmd FileType vue setlocal backupcopy=yes
+autocmd FileType vue setlocal backupcopy=yes tabstop=2 shiftwidth=2 softtabstop=2
 
 " perl smartsearch: if lowercase, ignore case
 set ignorecase
@@ -84,8 +93,14 @@ nmap <leader>o :set paste!<cr>
 " Format a JSON
 nmap =j :%!python -m json.tool<cr>
 " Persistent undo
+if !isdirectory($HOME."/.vim")
+    call mkdir($HOME."/.vim", "", 0770)
+endif
+if !isdirectory($HOME."/.vim/undo-dir")
+    call mkdir($HOME."/.vim/undo-dir", "", 0700)
+endif
+set undodir=$HOME/.vim/undo-dir
 set undofile
-set undodir=$HOME/.vim/undo
 
 set undolevels=100
 set undoreload=1000
@@ -111,5 +126,7 @@ if executable(local_eslint)
     let g:syntastic_javascript_eslint_exec = local_eslint
     let g:syntastic_vue_eslint_exec = local_eslint
 endif
+
+let g:ctrlp_custom_ignore = '\v[\/](\.git|node_modules)$'
 
 set list lcs=trail:·,tab:»·
