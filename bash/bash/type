@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# type param on keyboard
+type () {
+  sleep 3 && xdotool type "$1"
+}
