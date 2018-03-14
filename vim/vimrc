@@ -129,4 +129,9 @@ endif
 
 let g:ctrlp_custom_ignore = '\v[\/](\.git|node_modules)$'
 
+"" Add custom detection for ansible files:
+au BufRead,BufNewFile */playbooks/*.yml set filetype=ansible
+au BufRead,BufNewFile */config/*.yml set filetype=ansible
+au BufRead,BufNewFile */vars/*.yml set filetype=ansible
+
 set list lcs=trail:·,tab:»·
