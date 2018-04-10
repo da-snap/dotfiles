@@ -1,8 +1,0 @@
-pseudo-install() {
-    c_d=$PWD;
-    cd /var/www/qwikis/qwiki;
-    sudo -u www-data ./pseudo-install.pl -C /vagrant/.buildcontrib -u "$1";
-    sudo -u www-data ./pseudo-install.pl -C /vagrant/.buildcontrib -e "$1";
-    cd $c_d;
-}
-

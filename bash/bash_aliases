@@ -36,7 +36,3 @@ then
   alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 fi
 
-# Add bash aliases.
-if [ -f ~/.bash_aliases_wiki ]; then
-    source ~/.bash_aliases_wiki
-fi
