@@ -95,3 +95,4 @@ export PERLLIB="$PERL5LIB"
 export FOSWIKI_LIBS="$PERL5LIB"
 #Fix ls color for folder: (OTHER_WRITABLE) Directory that is other-writable (o+w) and not sticky
 export LS_COLORS=$LS_COLORS'ow=1;33'
+export VAGRANT_DEFAULT_PROVIDER=lxc
