@@ -123,3 +123,9 @@ au BufRead,BufNewFile */config/*.yml set filetype=ansible
 au BufRead,BufNewFile */vars/*.yml set filetype=ansible
 
 set list lcs=tab:»·
+
+"" ALE (Linting) Configuration:
+let g:ale_sign_error = '😡'
+let g:airline#extensions#ale#enabled = 1
+let g:ale_fixers = {'javascript': ['eslint']}
+let g:ale_linters = {'javascript': ['eslint']}
