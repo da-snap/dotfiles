@@ -32,7 +32,7 @@ filetype indent plugin on
 " never expand tabs in Makefiles - bugs them out
 autocmd FileType make setlocal noexpandtab
 " expand tabs in perl and config files
-autocmd FileType perl setlocal expandtab
+autocmd FileType perl setlocal expandtab shiftwidth=4
 autocmd FileType conf setlocal expandtab
 autocmd FileType apache setlocal expandtab
 " python settings
@@ -116,6 +116,10 @@ cmap w!! w !sudo tee > /dev/null %
 let @m = "bi{{maketext('lt<a')}}"
 
 let g:ctrlp_custom_ignore = '\v[\/](\.git|node_modules)$'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#buffer_min_count = 2
 
 "" Add custom detection for ansible files:
 au BufRead,BufNewFile */playbooks/*.yml set filetype=ansible
@@ -125,7 +129,13 @@ au BufRead,BufNewFile */vars/*.yml set filetype=ansible
 set list lcs=tab:»·
 
 "" ALE (Linting) Configuration:
-let g:ale_sign_error = '😡'
+let g:ale_sign_error = '🚓'
 let g:airline#extensions#ale#enabled = 1
-let g:ale_fixers = {'javascript': ['eslint']}
-let g:ale_linters = {'javascript': ['eslint']}
+let g:ale_perl_perlcritic_showrules = 1
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+let g:ale_fixers = { 'javascript': ['eslint'] }
+let g:ale_linters = {
+\    'javascript': ['eslint'],
+\}
+let g:ale_fix_on_save = 1
