@@ -11,15 +11,16 @@
     },
     {
         "link": {
+            "~/.bash": "bash/bash",
+            "~/.bash_aliases": "bash/bash_aliases",
+            "~/.bashrc": "bash/bashrc",
             "~/.dotfiles": "",
             "~/.dotfiles/.gitignore": "git/gitignore",
+            "~/.hyper.js": "hyper/hyper.js",
             "~/.inputrc": "bash/inputrc",
             "~/.profile": "bash/profile",
-            "~/.bash": "bash/bash",
-            "~/.bashrc": "bash/bashrc",
-            "~/.bash_aliases": "bash/bash_aliases",
             "~/.vim": "vim/vim",
-            "~/.vimrc": "vim/vimrc"
+            "~/.vimrc": "vim/vimrc",
         }
     },
     {
