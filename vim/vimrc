@@ -73,10 +73,14 @@ set hidden
  " Show all open buffers and their status
  nmap <leader>bl :ls<CR>
 
-" Easy CtrlP bindings for its various modes
-nmap <leader>bb :CtrlPBuffer<cr>
-nmap <leader>bm :CtrlPMixed<cr>
-nmap <leader>bs :CtrlPMRU<cr>
+" CtrlSpace Settings
+set nocompatible
+set showtabline=0
+let g:CtrlSpaceStatuslineFunction = "airline#extensions#ctrlspace#statusline()"
+" install silversearcher-ag
+if executable("ag")
+    let g:CtrlSpaceGlobCommand = 'ag -l --nocolor -g ""'
+endif
 
 nmap <leader>o :set paste!<cr>
 
@@ -115,11 +119,8 @@ cmap w!! w !sudo tee > /dev/null %
 
 let @m = "bi{{maketext('lt<a')}}"
 
-let g:ctrlp_custom_ignore = '\v[\/](\.git|node_modules)$'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline#extensions#tabline#buffer_min_count = 2
+let g:airline#extensions#ctrlspace#enabled = 1
+nnoremap <silent><C-p> :CtrlSpace O<CR>
 
 "" Add custom detection for ansible files:
 au BufRead,BufNewFile */playbooks/*.yml set filetype=ansible
