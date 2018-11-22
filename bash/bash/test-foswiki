@@ -1,0 +1,23 @@
+test-foswiki () {
+    WATCH_PATH=`pwd`;
+    FILE_WATCHES=`mktemp`;
+    find $WATCH_PATH -name '*.pm' -o -name '*.pl' -o -name '*.po' > $FILE_WATCHES
+
+    sigint_handler() {
+        exit
+    }
+
+    watcher() {
+        docker run -it --rm \
+            -v "$PWD":/usr/working \
+            -w /usr/working quay.io/modellaachen/perl-test:latest \
+            perl backend-tests/test.pl
+    }
+
+    trap sigint_handler SIGINT
+
+    while true; do
+        watcher
+        inotifywait -e CLOSE_WRITE --fromfile $FILE_WATCHES
+    done
+}
