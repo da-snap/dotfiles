@@ -8,9 +8,6 @@
 [submodule "vim/vim/bundle/vim-gitgutter"]
 	path = vim/vim/bundle/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
-[submodule "vim/vim/bundle/smyck-vim"]
-	path = vim/vim/bundle/smyck-vim
-	url = https://github.com/brendonrapp/smyck-vim.git
 [submodule "bash/bash/git-aware-prompt"]
 	path = bash/bash/git-aware-prompt
 	url = https://github.com/jimeh/git-aware-prompt.git
@@ -41,3 +38,6 @@
 [submodule "vim/vim/bundle/vim-polyglot"]
 	path = vim/vim/bundle/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot
+[submodule "vim/vim/bundle/smyck/colors"]
+	path = vim/vim/bundle/smyck/colors
+	url = https://github.com/hukl/Smyck-Color-Scheme.git
