@@ -11,9 +11,6 @@
 [submodule "vim/vim/bundle/smyck-vim"]
 	path = vim/vim/bundle/smyck-vim
 	url = https://github.com/brendonrapp/smyck-vim.git
-[submodule "vim/vim/bundle/vim-vue"]
-	path = vim/vim/bundle/vim-vue
-	url = https://github.com/posva/vim-vue.git
 [submodule "bash/bash/git-aware-prompt"]
 	path = bash/bash/git-aware-prompt
 	url = https://github.com/jimeh/git-aware-prompt.git
@@ -44,3 +41,6 @@
 [submodule "vim/vim/bundle/ack"]
 	path = vim/vim/bundle/ack
 	url = https://github.com/mileszs/ack.vim.git
+[submodule "vim/vim/bundle/vim-polyglot"]
+	path = vim/vim/bundle/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot
