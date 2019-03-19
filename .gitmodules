@@ -29,9 +29,6 @@
 [submodule "vim/vim/bundle/vim-repeat"]
 	path = vim/vim/bundle/vim-repeat
 	url = https://github.com/tpope/vim-repeat.git
-[submodule "vim/vim/bundle/ansible-vim"]
-	path = vim/vim/bundle/ansible-vim
-	url = https://github.com/pearofducks/ansible-vim
 [submodule "vim/vim/bundle/vim-ale"]
 	path = vim/vim/bundle/vim-ale
 	url = https://github.com/w0rp/ale
