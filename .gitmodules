@@ -41,3 +41,6 @@
 [submodule "vim/vim/bundle/vim-ctrlspace"]
 	path = vim/vim/bundle/vim-ctrlspace
 	url = https://github.com/vim-ctrlspace/vim-ctrlspace.git
+[submodule "vim/vim/bundle/ack"]
+	path = vim/vim/bundle/ack
+	url = https://github.com/mileszs/ack.vim.git

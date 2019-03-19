@@ -130,7 +130,6 @@ au BufRead,BufNewFile */vars/*.yml set filetype=ansible
 set list lcs=tab:»·
 
 "" ALE (Linting) Configuration:
-let g:ale_sign_error = '🚓'
 let g:airline#extensions#ale#enabled = 1
 let g:ale_perl_perlcritic_showrules = 1
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
@@ -140,3 +139,8 @@ let g:ale_linters = {
 \    'javascript': ['eslint'],
 \}
 let g:ale_fix_on_save = 1
+
+"" Use ag for searching
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
