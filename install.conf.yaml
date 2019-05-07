@@ -1,31 +1,19 @@
-[
-    {
-        "defaults": {
-            "link": {
-                "relink": true
-            }
-        }
-    },
-    {
-        "clean": ["~"]
-    },
-    {
-        "link": {
-            "~/.bash": "bash/bash",
-            "~/.bash_aliases": "bash/bash_aliases",
-            "~/.bashrc": "bash/bashrc",
-            "~/.dotfiles": "",
-            "~/.dotfiles/.gitignore": "git/gitignore",
-            "~/.hyper.js": "hyper/hyper.js",
-            "~/.inputrc": "bash/inputrc",
-            "~/.profile": "bash/profile",
-            "~/.vim": "vim/vim",
-            "~/.vimrc": "vim/vimrc",
-        }
-    },
-    {
-        "shell": [
-            ["git submodule update --init --recursive", "Installing submodules"]
-        ]
-    }
-]
+---
+- defaults:
+    link:
+      relink: true
+- clean:
+  - "~"
+- link:
+    "~/.bash": bash/bash
+    "~/.bash_aliases": bash/bash_aliases
+    "~/.bashrc": bash/bashrc
+    "~/.dotfiles": ''
+    "~/.dotfiles/.gitignore": git/gitignore
+    "~/.hyper.js": hyper/hyper.js
+    "~/.inputrc": bash/inputrc
+    "~/.profile": bash/profile
+    "~/.vim": vim/vim
+    "~/.vimrc": vim/vimrc
+- shell:
+  - git submodule update --init --recursive
