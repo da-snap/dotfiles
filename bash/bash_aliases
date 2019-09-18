@@ -26,6 +26,7 @@ alias q='exit'
 # some aliases for git
 alias gitc='git commit -p'
 alias gitp='git push'
+alias gitt='git log --all --decorate --oneline --graph'
 
 #cypress workflow
 alias cyopendev='lxc restore e2e-vagrant snap0 && remote-pseudo-install e2e WorkflowAppPlugin VueJSPlugin && yarn cypress open'
