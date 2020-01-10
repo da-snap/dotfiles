@@ -84,6 +84,12 @@ if [ -f ~/.bash_completion ]; then
     . ~/.bash_completion
 fi
 
+# Add github commands
+eval "$(hub alias -s)"
+if [ -f ~/.bash/completion/hub.bash_completion.sh ]; then
+  . ~/.bash/completion/hub.bash_completion.sh
+fi
+
 export GITAWAREPROMPT=~/.bash/git-aware-prompt
 source "${GITAWAREPROMPT}/main.sh"
 for f in $(find ~/.bash/ -maxdepth 1 -type f); do
