@@ -8,7 +8,6 @@
     "~/.bash": bash/bash
     "~/.bash_aliases": bash/bash_aliases
     "~/.bashrc": bash/bashrc
-    "~/.dotfiles": ''
     "~/.dotfiles/.gitignore": git/gitignore
     "~/.hyper.js": hyper/hyper.js
     "~/.inputrc": bash/inputrc
