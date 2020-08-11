@@ -90,6 +90,11 @@ if [ -f ~/.bash/completion/hub.bash_completion.sh ]; then
   . ~/.bash/completion/hub.bash_completion.sh
 fi
 
+# yubikey
+export GPG_TTY="$(tty)"
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+gpgconf --launch gpg-agent
+
 export GITAWAREPROMPT=~/.bash/git-aware-prompt
 source "${GITAWAREPROMPT}/main.sh"
 for f in $(find ~/.bash/ -maxdepth 1 -type f); do
@@ -103,5 +108,6 @@ export FOSWIKI_LIBS="$PERL5LIB"
 export LS_COLORS=$LS_COLORS'ow=1;33'
 export VAGRANT_DEFAULT_PROVIDER=lxd
 export ANDROID_HOME=$HOME/development/flutter/Android/Sdk
+#export JAVA_HOME=/usr/lib/jvm/zulu-11-amd64/
 export JAVA_HOME=$HOME/development/flutter/android-studio/jre
-export PATH=$PATH:$(yarn global bin):$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$HOME/development/flutter/flutter/bin
+export PATH=$PATH:$(yarn global bin):$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$JAVA_HOME/bin:$HOME/development/flutter/sdk/bin

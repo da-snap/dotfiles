@@ -1,2 +1,0 @@
-runtime! syntax/twiki.vim
-

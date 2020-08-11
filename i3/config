@@ -1,4 +1,3 @@
-# xrandr --output DP-1 --mode 1920x1080 --primary --left-of eDP-1 --output DP-2-1 --auto --left-of DP-1 --output eDP-1 --mode 1920x1080
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 # vim-like bindings
 set $left   h
@@ -11,10 +10,8 @@ set $win Mod4
 set $mod Mod4
 
 
-set $bgImg ~/.condig/i3/images/blue.png
+set $bgImg ~/Pictures/Wallpapers/blue.png
 
-bindsym $mod+Shift+greater move workspace to output right
-bindsym $mod+Shift+less move workspace to output left
 # ~~~~~~~~~~~~~~~~~~~~~~~~
 # Color Scheme
 
@@ -22,7 +19,7 @@ bindsym $mod+Shift+less move workspace to output left
 #to change topbar color edit $main-color
 #to change active workspace color edit $accent-color
 # ~~~~~~~~~~~~~~~~~~~~~~~~
-set $main-color                  #7FB3EF
+set $main-color                  #5F9EA0
 set $accent-color                #E26565
 set $background-color            #252525
 set $secondary-color             #000000
@@ -38,7 +35,7 @@ new_window pixel
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec hyper
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -48,11 +45,11 @@ bindsym $mod+n exec "i3lock -t -i $bgImg"
 bindsym $mod+Shift+n exec "i3lock -c 242424"
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+#bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+$left focus left
@@ -92,12 +89,17 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-set $ws1 " 1:misc "
-set $ws2 " 2:code "
-set $ws3 " 3:web "
-set $ws4 " 4:chat "
-set $ws5 " 5:status "
-set $ws6 " 6:keepass "
+# Move workspaces
+bindsym $mod+Shift+greater move workspace to output right
+bindsym $mod+Shift+less move workspace to output left
+
+set $ws1 " 1   "
+set $ws2 " 2   "
+set $ws3 " 3   "
+set $ws4 " 4   "
+set $ws5 " 5   "
+set $ws6 " 6   "
+
 # switch to workspace
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -127,21 +129,25 @@ bindsym $mod+Shift+0 move container to workspace 10
 #
 #       find class name with 'xprop'
 ##=================================================##
-assign [class="htop"] $ws1
+assign [class="Code"] $ws1
+#for_window [class="Code"] floating enable
+for_window [class="jetbrains-idea" title="win0"] floating enable;
 
-assign [class="Code"]     $ws2
-for_window [class="Code"] floating enable
+assign [class="terminal"] $ws1
+assign [class="Hyper"]    $ws1
+assign [class="intellij"] $ws1
 
-assign [class="terminal"] $ws2
-assign [class="Hyper"]    $ws2
-assign [class="intellij"] $ws2
+assign [class="Firefox"] $ws2
+assign [class="Chromium"] $ws2
 
-assign [class="Firefox"] $ws3
-assign [class="Chromium"] $ws3
+assign [class="Rambox"] $ws3
+assign [class="Signal"] $ws3
 
-assign [class="Rambox"] $ws4
+assign [class="KeePassXC"] $ws4
 
-assign [class="KeePassXC"] $ws6
+assign [class="htop"] $ws6
+assign [class="gitk"] $ws6
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -153,8 +159,10 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # Programm start mode
 # =================
 mode "programms" {
-        bindsym c exec code --no-startup-id --disable-gpu
+        bindsym c exec code --disable-gpu
         bindsym v exec gvim
+        bindsym h exec hyper
+        bindsym s exec signal-desktop --disable-gpu
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -175,20 +183,20 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+  # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym $left resize shrink width 10 px or 10 ppt
-        bindsym $down resize grow height 10 px or 10 ppt
-        bindsym $up resize shrink height 10 px or 10 ppt
-        bindsym $right resize grow width 10 px or 10 ppt
+  # Pressing left will shrink the window’s width.
+  # Pressing right will grow the window’s width.
+  # Pressing up will shrink the window’s height.
+  # Pressing down will grow the window’s height.
+  bindsym $left resize shrink width 10 px or 10 ppt
+  bindsym $down resize grow height 10 px or 10 ppt
+  bindsym $up resize shrink height 10 px or 10 ppt
+  bindsym $right resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+  # back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
 }
 
 bindsym $mod+r mode "resize"
@@ -206,22 +214,22 @@ client.urgent                   $main-color           $accent-color         $sec
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command SCRIPT_DIR=~/.config/i3/scripts i3blocks -c ~/.config/i3/i3blocks.conf
-        #status_command i3status
-        position top
-        font pango:Terminus, Icons 9
-        tray_output primary # comment to enable tray icons. Other arguments are: primary/none
-        tray_padding 2
-        #output primary
-        colors {
-            background $background-color
+  status_command SCRIPT_DIR=~/.config/i3/scripts i3blocks -c ~/.config/i3/i3blocks.conf
+  position top
+  font pango:Bitstream Vera 9
+  tray_output primary # comment to enable tray icons. Other arguments are: primary/none
+  tray_padding 2
 
-            # Property              Border                Background            Text
-            focused_workspace       $background-color     $main-color         $secondary-color
-            inactive_workspace      $main-color           $background-color   $text-color
-            urgent_workspace        $main-color           $main-color         $secondary-color
-            binding_mode            $background-color     $accent-color       $secondary-color
-        }
+  #output primary
+  colors {
+    background $background-color
+
+    # Property              Border                Background            Text
+    focused_workspace       $background-color     $main-color         $secondary-color
+    inactive_workspace      $main-color           $background-color   $text-color
+    urgent_workspace        $main-color           $main-color         $secondary-color
+    binding_mode            $background-color     $accent-color       $secondary-color
+  }
 }
 
 # ===============
@@ -229,4 +237,7 @@ bar {
 # ===============
 exec firefox
 exec rambox
+exec keepassxc
+exec --no-startup-id ~/.config/i3/scripts/monitor-setup
 exec_always --no-startup-id feh --bg-scale $bgImg
+

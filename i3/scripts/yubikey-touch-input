@@ -1,0 +1,14 @@
+#!/bin/sh
+while inotifywait -qq -e open $HOME/.gnupg/sshcontrol; do
+   sleep 1;
+   timeout 1s gpg --card-status > /dev/null
+   if [ "$?" -eq "124" ]; then
+     #echo "<span background='orange' foreground='black'></span>";
+     #echo "";
+     #echo "#f2a54d";
+     echo "{\"full_text\":\"\", \"color\":\"#f2a54d\"}";
+     #echo "";
+     sleep 5;
+     echo "{\"full_text\":\"\"}";
+   fi
+done
