@@ -101,9 +101,6 @@ for f in $(find ~/.bash/ -maxdepth 1 -type f); do
     source $f
 done
 export PS1="\${debian_chroot:+(\$debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] \[$txtylw\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
-export PERL5LIB="/var/www/qwikis/qwiki/lib"
-export PERLLIB="$PERL5LIB"
-export FOSWIKI_LIBS="$PERL5LIB"
 #Fix ls color for folder: (OTHER_WRITABLE) Directory that is other-writable (o+w) and not sticky
 export LS_COLORS=$LS_COLORS'ow=1;33'
 export VAGRANT_DEFAULT_PROVIDER=lxd
