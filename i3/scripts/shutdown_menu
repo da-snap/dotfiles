@@ -37,7 +37,7 @@ HLBG_COLOR="${HLBG_COLOR:-#bbbbbb}"
 BORDER_COLOR="${BORDER_COLOR:-#222222}"
 
 # Options not related to colors
-ROFI_TEXT="${ROFI_TEXT:-Menu:}"
+ROFI_TEXT="${ROFI_TEXT:-Menu}"
 ROFI_OPTIONS=(${ROFI_OPTIONS:--width 11 -location 3 -hide-scrollbar -bw 2})
 
 # Zenity options
@@ -136,7 +136,7 @@ function prepare_launcher() {
   if [[ "$1" == "rofi" ]]; then
     rofi_colors=(-bc "${BORDER_COLOR}" -bg "${BG_COLOR}" -fg "${FG_COLOR}" \
         -hlfg "${HLFG_COLOR}" -hlbg "${HLBG_COLOR}")
-    launcher_exe="rofi"
+    launcher_exe="rofi -config ~/.config/i3/rofi.rasi"
     launcher_options=(-dmenu -i -lines "${menu_nrows}" -p "${ROFI_TEXT}" \
         "${rofi_colors[@]}" "${ROFI_OPTIONS[@]}")
   elif [[ "$1" == "zenity" ]]; then

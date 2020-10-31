@@ -14,5 +14,6 @@
     "~/.profile": bash/profile
     "~/.vim": vim/vim
     "~/.vimrc": vim/vimrc
+    "~/.config/i3": i3
 - shell:
   - git submodule update --init --recursive
