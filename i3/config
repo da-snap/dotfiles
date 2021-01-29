@@ -9,7 +9,7 @@ set $alt Mod1
 set $win Mod4
 set $mod Mod4
 
-set $bgImg ./images/blue.png
+set $bgImg ~/.config/i3/images/blue.png
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~
 # Color Scheme
@@ -34,7 +34,7 @@ new_window pixel
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec hyper
+bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
