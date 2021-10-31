@@ -1,0 +1,7 @@
+#!/bin/bash
+
+reset_secutransfer () {
+  mysql -u ftapi -p ftapi -e "DROP DATABASE ftapi; CREATE DATABASE ftapi;" &&
+  sed -i '/^ftapi.init.submitbox.template/d' ~/.ftapi/config/user-config.properties
+  sed -i '/\.group/d' ~/.ftapi/config/user-config.properties
+}

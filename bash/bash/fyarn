@@ -1,0 +1,4 @@
+fyarn() {
+  local script
+  script=$(cat package.json | jq -r '.scripts | keys[] ' | sort | fzf) && yarn $(echo "$script")
+}
