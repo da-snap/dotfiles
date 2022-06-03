@@ -24,10 +24,25 @@ mon2=DP2-1-8
 if xrandr | grep "$mon2 connected"; then
     xrandr --output "$mon1" --mode 1920x1080 --left-of "$mon2" --output "$mon2" --auto --primary --output "$intern" --mode 1920x1080 --right-of "$mon2"
 fi
+#mon2=DP2-1-1
+#mon1=DP2-1-8
+#if xrandr | grep "$mon2 connected"; then
+#    xrandr --output "$mon1" --mode 1920x1080 --left-of "$mon2" --output "$mon2" --auto --primary --output "$intern" --mode 1920x1080 --left-of "$mon1"
+#fi
 mon1=DP1-1
 mon2=DP1-2
 if xrandr | grep "$mon2 connected"; then
     xrandr --output "$mon1" --mode 1920x1080 --left-of "$mon2" --output "$mon2" --auto --primary --output "$intern" --mode 1920x1080 --left-of "$mon1"
+fi
+
+mon1=DP2
+if xrandr | grep "$mon1 connected"; then
+    xrandr --output "$mon1" --mode 1920x1080 --right-of "$intern" --output "$intern" --mode 1920x1080
+fi
+
+mon1=DP1
+if xrandr | grep "$mon1 connected"; then
+    xrandr --output "$mon1" --mode 1920x1080 --right-of "$intern" --output "$intern" --mode 1920x1080
 fi
 
 if xrandr --listmonitors  | grep "Monitors: 1"; then
