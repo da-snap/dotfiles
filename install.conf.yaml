@@ -9,6 +9,7 @@
     "~/.bash_aliases": bash/bash_aliases
     "~/.bashrc": bash/bashrc
     "~/.zshrc": zsh/zshrc
+    "~/.oh-my-zsh/themes/passion.zsh-theme": zsh/passion.zsh-theme
     "~/.hyper.js": hyper/hyper.js
     "~/.inputrc": bash/inputrc
     "~/.profile": bash/profile
