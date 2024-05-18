@@ -106,5 +106,5 @@ export LS_COLORS=$LS_COLORS'ow=1;33'
 export VAGRANT_DEFAULT_PROVIDER=lxd
 export ANDROID_HOME=$HOME/development/flutter/Android/Sdk
 #export JAVA_HOME=/usr/lib/jvm/zulu-11-amd64/
-export JAVA_HOME=$HOME/development/flutter/android-studio/jre
-export PATH=$PATH:$(yarn global bin):$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$JAVA_HOME/bin:$HOME/development/flutter/sdk/bin:$HOME/.loacl/bin
+export JAVA_HOME=$HOME/.jdks/temurin-17.0.4.1
+export PATH=$PATH:$(yarn global bin):$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$JAVA_HOME/bin:$HOME/development/flutter/sdk/bin:$HOME/.loacl/bin:${KREW_ROOT:-$HOME/.krew}/bin

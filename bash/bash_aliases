@@ -20,20 +20,18 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
+alias vim='nvim'
+
 alias vpn='sudo openvpn *.ovpn'
 
 alias q='exit'
+
 # some aliases for git
 alias gitc='git commit -p'
 alias gitp='git push'
 alias gitt='git log --all --decorate --oneline --graph'
 
-#cypress workflow
-alias cyopendev='lxc restore e2e-vagrant snap0 && remote-pseudo-install e2e WorkflowAppPlugin VueJSPlugin && yarn cypress open'
-alias cyopen='lxc restore e2e-vagrant snap0 && yarn cypress open'
-alias cyheadless='lxc restore e2e-vagrant snap0 && yarn cypress run'
-alias cyupdate='lxc restore e2e-vagrant snap0 && yarn cypress run --reporter cypress-image-snapshot/reporter --env updateSnapshots=true'
-
+alias repos='cd ~/development;cd $(ls | fzf)'
 alias update-pkg='sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && sudo snap refresh'
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -42,6 +40,17 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # Tree
 if [ ! -x "$(which tree 2>/dev/null)" ]
 then
-  alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+  alias tree="find . -not -path '*node_modules/*' -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 fi
 
+alias kcfes='kubectl config use-context oidc@secutransfer-prod-fes1-1'
+alias kcdbl='kubectl config use-context oidc@secutransfer-prod-dbl1-1'
+alias kcdev='kubectl config use-context oidc@dev-cluster'
+alias kcstaging='kubectl config use-context oidc@staging.fes.ftapi.com'
+
+alias ftapi-db-port-forward-0='kubectl -n percona-database port-forward cluster1-pxc-0 3306:3306'
+alias ftapi-db-port-forward-1='kubectl -n percona-database port-forward cluster1-pxc-1 3306:3306'
+alias ftapi-db-port-forward-2='kubectl -n percona-database port-forward cluster1-pxc-2 3306:3306'
+alias ftapi-db-client='mysql --host=127.0.0.1 --port=3306 -u root -p'
+alias ftapi-db-prod='k exec -n percona-database cluster1-pxc-1 -c pxc -it -- /bin/bash -c "mysql -uroot -p\$MYSQL_ROOT_PASSWORD"'
+alias kf='k -n flux-system get kustomizations.kustomize.toolkit.fluxcd.io '

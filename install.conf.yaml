@@ -16,5 +16,6 @@
     "~/.vim": vim/vim
     "~/.vimrc": vim/vimrc
     "~/.config/i3": i3
+    "~/.config/nvim": nvim
 - shell:
   - git submodule update --init --recursive
