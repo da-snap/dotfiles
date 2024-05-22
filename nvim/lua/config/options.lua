@@ -25,3 +25,7 @@ vim.keymap.set('n', '<Leader>h', '<cmd>bprevious<cr>')
 vim.keymap.set('n', '<Leader>bq', '<cmd>bp<space>bd #<cr>')
 -- vim.keymap.set('n', '<Leader>bl', '<cmd>ls<cr>')
 
+-- Enable spell checking for git commits
+vim.api.nvim_exec([[
+  autocmd FileType gitcommit setlocal spell
+]], false)
