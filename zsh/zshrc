@@ -147,5 +147,17 @@ bindkey '^[\' zsh_gh_copilot_suggest  # bind Alt+\ to suggest
 
 # Flux autocompletion
 command -v flux >/dev/null && . <(flux completion zsh)
-export JAVA_HOME=$HOME/.jdks/temurin-17.0.4.1
-export PATH=$PATH:$(yarn global bin):$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$JAVA_HOME/bin:$HOME/development/flutter/sdk/bin:$HOME/.local/bin:${KREW_ROOT:-$HOME/.krew}/bin:$HOME/minio-binaries/:${KREW_ROOT:-$HOME/.krew}/bin
+export GOPATH=$HOME/go
+export JAVA_HOME=$HOME/.jdks/temurin-17.0.15
+export PATH=$PATH:$(yarn global bin):$JAVA_HOME/bin:$HOME/.local/bin:${KREW_ROOT:-$HOME/.krew}/bin:$HOME/minio-binaries/:${KREW_ROOT:-$HOME/.krew}/bin:$HOME/development/dev-helper/:/usr/local/go/bin
+. "/home/dsupplieth/.deno/env"
+
+# pnpm
+export PNPM_HOME="/home/dsupplieth/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+export PATH="$HOME/.local/bin:$PATH"
+eval "$(uv generate-shell-completion zsh)"
