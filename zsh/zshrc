@@ -1,3 +1,5 @@
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":/home/dsupplieth/.zsh/completions:"* ]]; then export FPATH="/home/dsupplieth/.zsh/completions:$FPATH"; fi
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -78,9 +80,19 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(gitfast fzf kubectl)
+plugins=(
+        gitfast
+        fzf
+        kubectl
+        ag
+        # zsh-github-copilot
+)
 
-source $ZSH/oh-my-zsh.sh
+# Check if running inside VS Code's integrated terminal
+if [ "$TERM_PROGRAM" != "vscode" ]; then
+    # Load Oh My Zsh
+    source $ZSH/oh-my-zsh.sh
+fi
 
 # User configuration
 
@@ -129,6 +141,9 @@ fi
 fpath=(${ASDF_DIR}/completions $fpath)
 # initialise completions with ZSH's compinit
 autoload -Uz compinit && compinit
+# Create Key bindings for Copilot
+bindkey '^[|' zsh_gh_copilot_explain  # bind Alt+shift+\ to explain
+bindkey '^[\' zsh_gh_copilot_suggest  # bind Alt+\ to suggest
 
 # Flux autocompletion
 command -v flux >/dev/null && . <(flux completion zsh)

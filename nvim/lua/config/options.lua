@@ -29,3 +29,6 @@ vim.keymap.set('n', '<Leader>bq', '<cmd>bp<space>bd #<cr>')
 vim.api.nvim_exec([[
   autocmd FileType gitcommit setlocal spell
 ]], false)
+
+require'lspconfig'.ts_ls.setup {}
+

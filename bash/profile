@@ -24,3 +24,7 @@ fi
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
+if [ -d "/snap/node/current/bin" ] ; then
+    PATH="/snap/node/current/bin:$PATH"
+fi
+. "/home/dsupplieth/.deno/env"

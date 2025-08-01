@@ -30,6 +30,12 @@ alias q='exit'
 alias gitc='git commit -p'
 alias gitp='git push'
 alias gitt='git log --all --decorate --oneline --graph'
+alias gitb='git-create-branch'
+alias gitd='git checkout development && git pull'
+
+alias gitpr='git push -u origin HEAD && gh pr create --fill -l "ByteBusters" && gh pr merge --auto --squash && gh pr view --web'
+alias gitlpr='gh pr list -A @me --web'
+alias gitprf="gh pr list -R FTAPI-Software/Server-Secutransfer -l ByteBusters --state open --json 'number,mergeStateStatus,title,url' -t '{{range .}}{{(printf \"#%v\" .number | autocolor \"yellow\")}} {{hyperlink .url .title}} {{if (\"DIRTY\" | eq .mergeStateStatus) }}🛑{{else if (\"BLOCKED\" | eq .mergeStateStatus)}} {{(\"⏲ \" | autocolor \"green\")}} {{ else }}{{ .mergeStateStatus }}{{end}} {{\"\\n\"}}{{end}}'"
 
 alias repos='cd ~/development;cd $(ls | fzf)'
 alias update-pkg='sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && sudo snap refresh'
@@ -43,11 +49,14 @@ then
   alias tree="find . -not -path '*node_modules/*' -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 fi
 
+alias port-usage='lsof -i'
+
 alias kcfes='kubectl config use-context oidc@secutransfer-prod-fes1-1'
 alias kcdbl='kubectl config use-context oidc@secutransfer-prod-dbl1-1'
 alias kcdev='kubectl config use-context oidc@dev-cluster'
 alias kcstaging='kubectl config use-context oidc@staging.fes.ftapi.com'
 
+alias ftapi-yarn-validate='yarn test:unit & yarn lint:validate & yarn type-check'
 alias ftapi-db-port-forward-0='kubectl -n percona-database port-forward cluster1-pxc-0 3306:3306'
 alias ftapi-db-port-forward-1='kubectl -n percona-database port-forward cluster1-pxc-1 3306:3306'
 alias ftapi-db-port-forward-2='kubectl -n percona-database port-forward cluster1-pxc-2 3306:3306'
