@@ -1,0 +1,10 @@
+#!/bin/bash
+
+function git-create-branch() {
+  if [ -z "$1" ]; then
+    echo "Branch name is required"
+    return 1
+  fi
+  git checkout -b "$1"
+  git push -u origin HEAD
+}
