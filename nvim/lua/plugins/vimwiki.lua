@@ -1,0 +1,12 @@
+return {
+  'vimwiki/vimwiki',
+  config = function()
+    vim.g.vimwiki_list = {
+       {
+         path = '~/Nextcloud/wiki/',
+         syntax = 'markdown',
+         ext = '.md'
+       }
+     }
+  end,
+}

@@ -38,7 +38,7 @@ alias gitlpr='gh pr list -A @me --web'
 alias gitprf="gh pr list -R FTAPI-Software/Server-Secutransfer -l ByteBusters --state open --json 'number,mergeStateStatus,title,url' -t '{{range .}}{{(printf \"#%v\" .number | autocolor \"yellow\")}} {{hyperlink .url .title}} {{if (\"DIRTY\" | eq .mergeStateStatus) }}🛑{{else if (\"BLOCKED\" | eq .mergeStateStatus)}} {{(\"⏲ \" | autocolor \"green\")}} {{ else }}{{ .mergeStateStatus }}{{end}} {{\"\\n\"}}{{end}}'"
 
 alias repos='cd ~/development;cd $(ls | fzf)'
-alias update-pkg='sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && sudo snap refresh'
+alias update-pkg='sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && sudo snap refresh && npm outdated -g --depth=0 && npm update -g'
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -61,5 +61,6 @@ alias ftapi-db-port-forward-0='kubectl -n percona-database port-forward cluster1
 alias ftapi-db-port-forward-1='kubectl -n percona-database port-forward cluster1-pxc-1 3306:3306'
 alias ftapi-db-port-forward-2='kubectl -n percona-database port-forward cluster1-pxc-2 3306:3306'
 alias ftapi-db-client='mysql --host=127.0.0.1 --port=3306 -u root -p'
-alias ftapi-db-prod='k exec -n percona-database cluster1-pxc-1 -c pxc -it -- /bin/bash -c "mysql -uroot -p\$MYSQL_ROOT_PASSWORD"'
-alias kf='k -n flux-system get kustomizations.kustomize.toolkit.fluxcd.io '
+alias ftapi-db-prod='kubectl exec -n percona-database cluster1-pxc-1 -c pxc -it -- /bin/bash -c "mysql -uroot -p\$MYSQL_ROOT_PASSWORD"'
+alias kf='kubectl -n flux-system get kustomizations.kustomize.toolkit.fluxcd.io '
+alias podman='docker'

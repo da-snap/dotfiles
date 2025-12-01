@@ -1,5 +1,4 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# ~/.bashrc: executed by bash(1) for non-login shells. see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
 # If not running interactively, don't do anything
@@ -91,9 +90,12 @@ if [ -f ~/.bash/completion/hub.bash_completion.sh ]; then
 fi
 
 # yubikey
-export GPG_TTY="$(tty)"
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-gpgconf --launch gpg-agent
+#export GPG_TTY="$(tty)"
+#export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+#gpgconf --launch gpg-agent
+
+bind 'set show-all-if-ambiguous on'
+bind 'TAB:menu-complete'
 
 export GITAWAREPROMPT=~/.bash/git-aware-prompt
 source "${GITAWAREPROMPT}/main.sh"
@@ -106,6 +108,16 @@ export LS_COLORS=$LS_COLORS'ow=1;33'
 export VAGRANT_DEFAULT_PROVIDER=lxd
 export ANDROID_HOME=$HOME/development/flutter/Android/Sdk
 #export JAVA_HOME=/usr/lib/jvm/zulu-11-amd64/
-export JAVA_HOME=$HOME/.jdks/temurin-17.0.4.1
-export PATH=$PATH:$(yarn global bin):~/.npm-global/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$JAVA_HOME/bin:$HOME/development/flutter/sdk/bin:$HOME/.loacl/bin:${KREW_ROOT:-$HOME/.krew}/bin
-. "/home/dsupplieth/.deno/env"export PATH="$HOME/.local/bin:$PATH"
+export JAVA_HOME=$HOME/.jdks/temurin-25
+export PATH=$PATH:$JAVA_HOME/bin:$HOME/.loacl/bin:${KREW_ROOT:-$HOME/.krew}/bin
+#. "/home/dsupplieth/.deno/env"
+export PATH="$HOME/.local/bin:$PATH"
+
+#Add maven
+if [ -d "$HOME/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/plugins/maven/lib/maven3/bin" ] ; then
+    export PATH="$HOME/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/plugins/maven/lib/maven3/bin:$PATH"
+fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

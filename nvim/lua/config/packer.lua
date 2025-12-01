@@ -12,7 +12,7 @@ end
 local packer_bootstrap = ensure_packer()
 
 -- telescope configuration
-local builtin = require('telescope.builtin')
+-- local builtin = require('telescope.builtin')
 -- vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<C-P>', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})

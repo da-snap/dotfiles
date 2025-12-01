@@ -10,12 +10,8 @@
     "~/.bashrc": bash/bashrc
     "~/.zshrc": zsh/zshrc
     "~/.oh-my-zsh/themes/passion.zsh-theme": zsh/passion.zsh-theme
-    "~/.hyper.js": hyper/hyper.js
     "~/.inputrc": bash/inputrc
     "~/.profile": bash/profile
-    "~/.vim": vim/vim
-    "~/.vimrc": vim/vimrc
-    "~/.config/i3": i3
     "~/.config/nvim": nvim
 - shell:
   - git submodule update --init --recursive

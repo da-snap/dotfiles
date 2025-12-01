@@ -30,5 +30,4 @@ vim.api.nvim_exec([[
   autocmd FileType gitcommit setlocal spell
 ]], false)
 
-require'lspconfig'.ts_ls.setup {}
-
+vim.g.lazyvim_picker = "telescope"
