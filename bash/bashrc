@@ -97,6 +97,10 @@ fi
 bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
 
+# Use fd for fzf (ignores .git and .gitignore)
+export FZF_DEFAULT_COMMAND='fdfind --type f --strip-cwd-prefix --hidden --exclude .git'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
 export GITAWAREPROMPT=~/.bash/git-aware-prompt
 source "${GITAWAREPROMPT}/main.sh"
 for f in $(find ~/.bash/ -maxdepth 1 -type f); do
@@ -117,7 +121,14 @@ export PATH="$HOME/.local/bin:$PATH"
 if [ -d "$HOME/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/plugins/maven/lib/maven3/bin" ] ; then
     export PATH="$HOME/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/plugins/maven/lib/maven3/bin:$PATH"
 fi
+#Add nvim mston lsp to path
+if [ -d "$HOME/.local/share/nvim/mason/bin" ] ; then
+    export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
+fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# mise - developer tool version manager
+eval "$(/home/dsupplieth/.local/bin/mise activate bash)"

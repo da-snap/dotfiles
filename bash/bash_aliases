@@ -11,6 +11,8 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 alias lgrep='grep -Ri --exclude-dir={node_modules,pub}'
+
+alias fd='fdfind'
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
