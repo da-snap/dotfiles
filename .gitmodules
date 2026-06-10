@@ -2,60 +2,12 @@
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
 	branch = master
-[submodule "vim/vim/bundle/vim-airline"]
-	path = vim/vim/bundle/vim-airline
-	url = https://github.com/vim-airline/vim-airline.git
-[submodule "vim/vim/bundle/vim-gitgutter"]
-	path = vim/vim/bundle/vim-gitgutter
-	url = https://github.com/airblade/vim-gitgutter.git
 [submodule "bash/bash/git-aware-prompt"]
 	path = bash/bash/git-aware-prompt
 	url = https://github.com/jimeh/git-aware-prompt.git
-[submodule "vim/vim-pathogen"]
-	path = vim/vim-pathogen
-	url = https://github.com/tpope/vim-pathogen.git
-[submodule "vim/vim/bundle/vim-better-whitespace"]
-	path = vim/vim/bundle/vim-better-whitespace
-	url = https://github.com/ntpeters/vim-better-whitespace.git
 [submodule "bash/gnome-terminal-colors-smyck"]
 	path = bash/gnome-terminal-colors-smyck
 	url = https://github.com/vcavallo/gnome-terminal-colors-smyck.git
-[submodule "vim/vim/bundle/vim-surround"]
-	path = vim/vim/bundle/vim-surround
-	url = https://github.com/tpope/vim-surround.git
-[submodule "vim/vim/bundle/vim-repeat"]
-	path = vim/vim/bundle/vim-repeat
-	url = https://github.com/tpope/vim-repeat.git
-[submodule "vim/vim/bundle/vim-ale"]
-	path = vim/vim/bundle/vim-ale
-	url = https://github.com/w0rp/ale
-[submodule "vim/vim/bundle/vim-ctrlspace"]
-	path = vim/vim/bundle/vim-ctrlspace
-	url = https://github.com/vim-ctrlspace/vim-ctrlspace.git
-[submodule "vim/vim/bundle/ack"]
-	path = vim/vim/bundle/ack
-	url = https://github.com/mileszs/ack.vim.git
-[submodule "vim/vim/bundle/vim-polyglot"]
-	path = vim/vim/bundle/vim-polyglot
-	url = https://github.com/sheerun/vim-polyglot
-[submodule "vim/vim/bundle/smyck/colors"]
-	path = vim/vim/bundle/smyck/colors
-	url = https://github.com/hukl/Smyck-Color-Scheme.git
-[submodule "vim/vim/bundle/vim-solors-solarized"]
-	path = vim/vim/bundle/vim-solors-solarized
-	url = https://github.com/altercation/vim-colors-solarized.git
 [submodule "bash/one-gnome-terminal"]
 	path = bash/one-gnome-terminal
 	url = https://github.com/denysdovhan/one-gnome-terminal.git
-[submodule "vim/vim/bundle/vim-fugitive"]
-	path = vim/vim/bundle/vim-fugitive
-	url = https://github.com/tpope/vim-fugitive.git
-[submodule "vim/vim/bundle/onedark"]
-	path = vim/vim/bundle/onedark
-	url = https://github.com/joshdick/onedark.vim.git
-[submodule "vim/vim/bundle/vim-rhubarb"]
-	path = vim/vim/bundle/vim-rhubarb
-	url = https://github.com/tpope/vim-rhubarb.git
-[submodule "vim/vim/bundle/vim-wiki"]
-	path = vim/vim/bundle/vim-wiki
-	url = https://github.com/vimwiki/vimwiki.git
